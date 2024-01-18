@@ -22,7 +22,7 @@ class Task(db.Model):
     due_date = db.Column(db.Date, nullable=False)
     category_id = db.Column(
         db.Integer, db.ForeignKey(
-            "ategory.id", ondelete="CASCADE"), nullable=False)
+            "category.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
