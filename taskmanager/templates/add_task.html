@@ -1,42 +1,42 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add task</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Add Task</h3>
 
 <div class="row card-panel grey lighten-5">
   <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
-    <!-- task Name-->
+    <!-- task name -->
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
         <input
           id="task_name"
           name="task_name"
+          minlength="5"
+          maxlength="50"
           type="text"
           class="validate"
           required
-          minlength="5"
-          maxlength="50"
         />
         <label for="task_name">Task Name</label>
       </div>
     </div>
-    <!-- task desciption-->
+    <!-- task description -->
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
         <textarea
-          id="task_desciption"
-          name="task_desciption"
+          id="task_description"
+          name="task_description"
+          minlength="5"
+          maxlength="200"
           type="text"
           class="materialize-textarea validate"
           required
-          minlength="5"
-          maxlength="200"
         ></textarea>
-        <label for="task_desciption">Task Desciption</label>
+        <label for="task_description">Task Description</label>
       </div>
     </div>
-    <!-- task due date-->
+    <!-- due date -->
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
@@ -50,7 +50,7 @@
         <label for="due_date">Due Date</label>
       </div>
     </div>
-    <!-- task is_urgent-->
+    <!-- is urgent -->
     <div class="row">
       <div class="input-field col s12">
         <div class="switch">
@@ -62,15 +62,14 @@
             <span class="lever"></span>
             Is Urgent
           </label>
-          <label for="is_urgent">Is Urgent</label>
         </div>
       </div>
     </div>
-    <!-- task category_id -->
+    <!-- category id -->
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <select name="" id="category_id" class="validate" required>
+        <select id="category_id" name="category_id" class="validate" required>
           <option value="" disabled selected>Choose Category</option>
           {% for category in categories %}
           <option value="{{ category.id }}">
@@ -78,14 +77,14 @@
           </option>
           {% endfor %}
         </select>
-        <label for="task_name">Task Name</label>
+        <label for="category_id">Category</label>
       </div>
     </div>
-    <!-- submit button-->
+    <!-- submit button -->
     <div class="row">
       <div class="col s12 center-align">
         <button type="submit" class="btn-large light-blue darken-1">
-          Add task <i class="fas fa-plus right"></i>
+          Add Task <i class="fas fa-plus-square right"></i>
         </button>
       </div>
     </div>
